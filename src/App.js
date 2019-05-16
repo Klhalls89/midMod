@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import CardContainer from './CardContainer'
 
 class App extends Component {
   constructor(){
@@ -16,20 +17,24 @@ class App extends Component {
   getReservations(){
     fetch("http://localhost:3001/api/v1/reservations")
       .then(response => response.json())
-      .then(response => console.log(response))
+      .then(response => this.resetState(response))
       .catch(error => console.log(error))
       }
 
+  resetState(reservations) {
+    this.setState({
+      reservations
+    })
+  }
+
   render() {
+    const {reservations} = this.state
     return (
       <div className="App">
         <h1 className='app-title'>Turing Cafe Reservations</h1>
         <div className='resy-form'>
-
         </div>
-        <div className='resy-container'>
-          
-        </div>
+        <CardContainer reservations={reservations} />
       </div>
     )
   }
