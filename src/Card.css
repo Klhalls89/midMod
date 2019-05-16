@@ -1,0 +1,17 @@
+.card {
+  width: 150px;
+  height: 200px;
+  background-color: #fff;
+  color: teal;
+  border: 5px;
+  border-color: teal;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.card-btn {
+  background-color: teal;
+  color: #fff;
+  border: 0;
+  width: 60%;
+}
