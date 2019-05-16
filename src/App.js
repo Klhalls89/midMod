@@ -24,6 +24,7 @@ class App extends Component {
 
   makeReservations(res) {
     console.log(res)
+    //make a post with res and send to back end
   }
 
   resetState(reservations) {
