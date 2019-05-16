@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import CardContainer from './CardContainer'
+import Form from "./Form"
 
 class App extends Component {
   constructor(){
@@ -10,16 +11,20 @@ class App extends Component {
     }
   }
 
-  componentDidMount(){
+  componentDidMount() {
     this.getReservations()
   }
 
-  getReservations(){
+  getReservations() {
     fetch("http://localhost:3001/api/v1/reservations")
       .then(response => response.json())
       .then(response => this.resetState(response))
       .catch(error => console.log(error))
       }
+
+  makeReservations(res) {
+    console.log(res)
+  }
 
   resetState(reservations) {
     this.setState({
@@ -31,9 +36,8 @@ class App extends Component {
     const {reservations} = this.state
     return (
       <div className="App">
-        <h1 className='app-title'>Turing Cafe Reservations</h1>
-        <div className='resy-form'>
-        </div>
+        <h1 makeReservations={this.makeReservations} className='app-title'>Turing Cafe Reservations</h1>
+        <Form />
         <CardContainer reservations={reservations} />
       </div>
     )
